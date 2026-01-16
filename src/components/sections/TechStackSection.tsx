@@ -10,19 +10,24 @@ const technologies = [
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" },
 ];
 
 const TechStackSection = () => {
   return (
-    <section id="tech" className="section-padding bg-muted/30">
-      <div className="section-container">
+    <section id="tech" className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Tech <span className="gradient-text">Stack</span>
+          <p className="text-primary font-semibold mb-3 animate-fade-up">Our Expertise</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-fade-up-delay-1">
+            Technology <span className="gradient-text">Stack</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I work with modern technologies and tools to deliver high-quality, scalable solutions.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up-delay-2">
+            We leverage cutting-edge technologies and tools to deliver high-quality, 
+            scalable solutions that stand the test of time.
           </p>
         </div>
 
@@ -30,22 +35,29 @@ const TechStackSection = () => {
           {technologies.map((tech, index) => (
             <div
               key={tech.name}
-              className="card-elevated p-4 md:p-6 flex flex-col items-center gap-3 group"
+              className="card-elevated p-5 md:p-6 flex flex-col items-center gap-4 group"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform group-hover:scale-110">
+              <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain"
                   loading="lazy"
                 />
               </div>
-              <span className="text-xs md:text-sm font-medium text-muted-foreground text-center">
+              <span className="text-xs md:text-sm font-semibold text-muted-foreground text-center group-hover:text-foreground transition-colors">
                 {tech.name}
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Additional info */}
+        <div className="mt-16 text-center">
+          <p className="text-muted-foreground">
+            ...and many more tools tailored to your project's needs
+          </p>
         </div>
       </div>
     </section>
